@@ -1,11 +1,27 @@
-import React from 'react'
-import Tab from "./Tab"
+import React, { useState } from "react";
+import "./styles.css";
 
-const App = () => {
+export default function App() {
+  const [activeTab, setActiveTab] = useState("Home");
+
+  const handleTabClick = (tabName) => {
+    setActiveTab(tabName);
+  };
+
   return (
-    <Tab />
-  )
+    <div className="tabs">
+      <div className="tab" id="Home-tab" onClick={() => handleTabClick("Home")}>
+        Home
+      </div>
+      <div className="tab" id="About-tab" onClick={() => handleTabClick("About")}>
+        About
+      </div>
+      <div className="tab" id="Features-tab" onClick={() => handleTabClick("Features")}>
+        Features
+      </div>
+      <div className="viewport">
+        Pages Go Here for {activeTab}
+      </div>
+    </div>
+  );
 }
-
-export default App
-
